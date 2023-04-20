@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4</title>
+</head>
+<style>
+    .main{
+        background-color: rgb(224, 222, 222);
+        width: 30%;
+        height: 50px;
+        text-align: center;
+        margin-left: 500px;
+    }
+    #c{
+        margin-top: 12px;
+        border: 2px solid rgb(29, 176, 213);
+        height: 20px;
+        width: 120px;
+    }
+    #f{
+        margin-top: 12px;
+        border: 2px solid rgb(29, 176, 213);
+        height: 20px;
+        width: 120px;
+    }
+</style>
+
+<body>
+    <form class="main">
+        <span>Celsius <input type="number" id="c" onkeyup="ConvertCelsiusToFahrenheit()"> </span>
+        <span>= Fahrenheit <input type="number" id="f" onkeyup="ConvertFahrenheitToCelsius()"> </span>
+
+    </form>
+
+    <script>
+        function ConvertCelsiusToFahrenheit() {
+            var c = document.getElementById("c");
+            var f = document.getElementById("f");
+            console.log("test", c.value);
+
+            if (c.value != "") {
+
+                f.value = Math.round(c.value * 9 / 5 + 32);
+            }
+        }
+
+        function ConvertFahrenheitToCelsius() {
+            var c = document.getElementById("c");
+            var f = document.getElementById("f");
+
+            if (f.value != "") {
+
+                c.value = Math.round((f.value - 32) * 5 / 9);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

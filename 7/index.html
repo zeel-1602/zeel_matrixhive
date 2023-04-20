@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>7</title>
+
+    <style>
+        .main{
+            background-color: rgb(250, 246, 246);
+            
+        }
+    </style>
+</head>
+<body class="main">
+    <div>
+        <ul id="copy">
+            <li>Milk</li>
+            <li>Tea</li>
+            <li>Coffee</li>
+            <li>Juice</li>
+            <li>Water</li>
+        </ul><br>
+        <p>click the button to copy an item from one list to another.</p>
+
+        <!-- <ul id="copy2"> </ul> -->
+
+        <input id="btn" type="button" value="try it">
+    </div>
+
+<script>
+    $(document).ready(function(){
+      $("#btn").click(function(){
+        $("#copy").clone().appendTo("body");
+      });
+    });
+    </script>
+    
+</body>
+</html>

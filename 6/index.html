@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6</title>
+    <style>
+        .num {
+            width: 50px;
+        }
+
+        #green {
+            -webkit-appearance: none;
+            width: 400px;
+            background: linear-gradient(90deg, #000, green);
+            height: 15px;
+        }
+
+        #blue {
+            -webkit-appearance: none;
+            width: 400px;
+            background: linear-gradient(90deg, #000, blue);
+            height: 15px;
+        }
+
+        #box {
+            width: 300px;
+            height: 40px;
+            margin-left: 30px;
+            background-color: #000;
+        }
+
+        .main {
+            background-color: rgb(247, 245, 244);
+            width: 35%;
+            margin-left: 500px;
+        }
+
+        .cent {
+            text-align: center;
+        }
+
+        #red {
+            -webkit-appearance: none;
+            width: 400px;
+            background: linear-gradient(90deg, #000, red);
+            height: 15px;
+        }
+
+        #red {
+            -webkit-slider-thumb: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div id="box"></div><br><br><br>
+
+        <div class="cent">
+            R: <input type="text" id="red-num" value="0" class="num" oninput="mycolor2()">
+            <input type="range" id="red" min="0" max="255" value="0" oninput="mycolor()">
+        </div><br>
+
+        <div class="cent">
+            G: <input type="text" id="green-num" value="0" class="num" oninput="mycolor2()">
+            <input type="range" id="green" min="0" max="255" value="0" oninput="mycolor()">
+        </div><br>
+
+        <div class="cent">
+            B: <input type="text" id="blue-num" value="0" class="num" oninput="mycolor2()">
+            <input type="range" id="blue" min="0" max="255" value="0" oninput="mycolor()">
+        </div><br>
+    </div>
+
+    <script>
+        function mycolor() {
+            var red = document.getElementById("red").value;
+            var green = document.getElementById("green").value;
+            var blue = document.getElementById("blue").value;
+
+            var color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+            // var red = red;
+            // var green = green;
+            // var blue = blue;
+
+            document.querySelector('.main #box').style.backgroundColor = color;
+
+            // document.getElementById('box').value = color;
+            document.getElementById('red-num').value = red;
+            document.getElementById('green-num').value = green;
+            document.getElementById('blue-num').value = blue;
+        }
+
+        function mycolor2() {
+            var red_num = document.getElementById("red-num").value;
+            var green_num = document.getElementById("green-num").value;
+            var blue_num = document.getElementById("blue-num").value;
+
+            var color2 = 'rgb(' + red_num + ',' + green_num + ',' + blue_num + ')';
+
+            document.querySelector('.main #box').style.backgroundColor = color2;
+
+            document.getElementById('red').value = red_num;
+            document.getElementById('green').value = green_num;
+            document.getElementById('blue').value = blue_num;
+        }
+    </script>
+
+</body>
+
+</html>

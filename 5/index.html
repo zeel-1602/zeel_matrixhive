@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <style>
+        .main {
+            background-color: rgb(239, 238, 235);
+            width: 30%;
+            height: 100px;
+            margin-left: 520px;
+            text-align: center;
+        }
+
+        #c {
+            border: 2px solid rgb(159, 169, 231);
+            height: 30px;
+            width: 120px;
+        }
+
+        #f {
+            border: 2px solid rgb(159, 169, 213);
+            height: 30px;
+            width: 120px;
+        }
+
+        #sec {
+            border: 2px solid rgb(159, 169, 213);
+            height: 30px;
+            width: 120px;
+        }
+
+        #min {
+            border: 2px solid rgb(159, 169, 213);
+            height: 30px;
+            width: 120px;
+        }
+
+        #type {
+            width: 360px;
+            height: 20px;
+            border: 2px solid rgb(159, 169, 231);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <form>
+            <select id="type" onchange="myfunction()">
+                <option value="Time">Time</option>
+                <option value="Temprature">Temprature</option>
+            </select>
+            <br>
+            <br>
+        </form>
+
+        <form id="t">
+            <span>Second <input type="number" id="sec" value="3600" onkeyup="ConvertSecondToMinute()"> </span>
+            <span>Minute <input type="number" id="min" value="60" onkeyup="ConvertMinuteToSecond()"> </span>
+        </form>
+
+        <form id="T" style="display: none;">
+            <span>Celsius <input type="number" id="c" onkeyup="ConvertCelsiusToFahrenheit()"> </span>
+            <span>Fahrenheit <input type="number" id="f" onkeyup="ConvertFahrenheitToCelsius()"> </span>
+        </form>
+    </div>
+
+    <script>
+
+        function myfunction() {
+            var selectedval = document.getElementById("type").value;
+            if (selectedval == "Time") {
+                t.style.display = "block";
+                T.style.display = "none";
+            }
+            else if (selectedval == "Temprature") {
+                T.style.display = "block";
+                t.style.display = "none";
+
+            }
+        }
+
+        // For Time
+
+        function ConvertSecondToMinute() {
+            var sec = document.getElementById("sec");
+            var min = document.getElementById("min");
+
+            if (sec.value != "") {
+                min.value = Math.floor(sec.value / 60);
+            }
+        }
+        function ConvertMinuteToSecond() {
+            var sec = document.getElementById("sec");
+            var min = document.getElementById("min");
+
+            if (min.value != "") {
+                sec.value = Math.floor(min.value * 60);
+            }
+        }
+
+        // For temperature
+
+        function ConvertCelsiusToFahrenheit() {
+            var c = document.getElementById("c");
+            var f = document.getElementById("f");
+            console.log("test", c.value);
+
+            if (c.value != "") {
+                f.value = Math.round(c.value * 9 / 5 + 32);
+            }
+        }
+        function ConvertFahrenheitToCelsius() {
+            var c = document.getElementById("c");
+            var f = document.getElementById("f");
+
+            if (f.value != "") {
+                c.value = Math.round((f.value - 32) * 5 / 9);
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

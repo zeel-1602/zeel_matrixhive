@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <style>
+        .main {
+            background-color: black;
+            padding: 10px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .result {
+            color: white;
+            font-size: 20px;
+        }
+
+        #new {
+            background-color: rgb(215, 247, 236);
+            border: 1px solid grey;
+            border-radius: 5px;
+            font-size: 10px;
+            width: 50px;
+            height: 25px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body style="background-color: rgb(219, 243, 217);">
+
+    <span>
+        <input type="button" id="new" value="New">
+    </span>
+
+    <span class="main" data-id="1">
+        <input type=button class="btn1" value="-" />
+        <span id="output-area_1" class="result">0</span>
+        <input type=button class="btn2" value="+" />
+    </span>
+
+    <span id="copy"></span>
+
+    <br>
+    <br>
+
+</body>
+
+<script>
+        $(document).ready(function () {
+            $("#new").click(function () {
+                
+                var newele = $(".main").last().clone();
+                var newid = newele.data("id");
+                newid = newid + 1;
+                newele.attr("data-id", newid);
+                console.log("test", newele.find(".result"));
+                newele.find(".result").attr("id", "output-area_" + newid);
+                newele.find(".result").text(0);
+                newele.appendTo("#copy");
+
+            });
+
+            $(document).on("click", ".btn1", function () {
+                var id = $(this).parent().attr("data-id");
+                
+                var currentresult = $("#output-area_" + id).text();
+                if (currentresult == undefined) {
+                    currentresult = 0;
+                }
+                currentresult = parseInt(currentresult);
+
+                var resultele = $("#output-area_" + id);
+                var a = currentresult-1;
+                resultele.text(a);
+            });
+
+            $(document).on("click", ".btn2", function() {
+                var id = $(this).parent().attr("data-id");
+                
+                var currentresult = $("#output-area_" + id).text();
+                if (currentresult == undefined) {
+                    currentresult = 0;
+                }
+                currentresult = parseInt(currentresult);
+
+                var resultele = $("#output-area_" + id);
+                var a = currentresult+1;
+                resultele.text(a);
+            });
+
+        });
+
+    </script>
+
+</html>
